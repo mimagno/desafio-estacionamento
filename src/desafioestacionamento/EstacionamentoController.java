@@ -3,35 +3,36 @@ package desafioestacionamento;
 import java.util.Scanner;
 
 public class EstacionamentoController {
+        private Estacionamento estacionamento = new Estacionamento();
+        private String resposta = null;
+        private String controlador = null;
+        private Scanner scanner = new Scanner(System.in);
 
-    public static void Controller() throws Exception {
-        Estacionamento estacionamento = new Estacionamento();
-        String resposta = null;
-        String controlador = null;
-        Scanner scanner = new Scanner(System.in);
+    public void Controller() throws Exception {
 
 
-        System.out.println("Bem vindo ao nosso sistema de cadastro de estacionamento. \nAtualmente temos " + estacionamento.getTotalVagas() + " vagas\n");
+
+        System.out.println("Bem vindo ao nosso sistema de cadastro de estacionamento. \nAtualmente temos " + this.estacionamento.getTotalVagas() + " vagas\n");
         System.out.println("Digite \"sim\" para cadastrar um carro no estacionamento");
-        controlador = scanner.nextLine();
-        while (controlador.equals("sim")){
+        this.controlador = this.scanner.nextLine();
+        while (this.controlador.equals("sim")){
             System.out.println("Digite a cor do seu carro");
-            String cor = scanner.nextLine();
+            String cor = this.scanner.nextLine();
             System.out.println("Digite a placa do seu carro");
-            String placa = scanner.nextLine();
+            String placa = this.scanner.nextLine();
             System.out.println("Digite a velocidade máxida do seu carro");
-            String velocidadeM = scanner.nextLine();
+            String velocidadeM = this.scanner.nextLine();
 
-            resposta = estacionamento.addCarro(new Carro(cor,placa,velocidadeM));
-            System.out.println(resposta);
+            this.resposta = this.estacionamento.addCarro(new Carro(cor,placa,velocidadeM));
+            System.out.println(this.resposta);
 
-            System.out.println("Vagas disponíveis: " + (estacionamento.getTotalVagas() - estacionamento.size()));
+            System.out.println("Vagas disponíveis: " + (this.estacionamento.getTotalVagas() - this.estacionamento.size()));
             System.out.println("Digite \"sim\" para cadastrar outro carro");
-            controlador = scanner.nextLine();
+            this.controlador = this.scanner.nextLine();
         }
 
         System.out.println("\nCarros:\n");
-        estacionamento.getListaCarrosEstacionamento().stream().forEach(carro -> System.out.println("Carro numero: " + "\n" +
+        this.estacionamento.getListaCarrosEstacionamento().stream().forEach(carro -> System.out.println("Carro numero: " + "\n" +
                 "Cor: " + carro.getCor() + "\n" +
                 "Placa: " + carro.getPlaca() + "\n" +
                 "Velocidade Máxima: " + carro.getVelocidadeMax() + "\n"));
