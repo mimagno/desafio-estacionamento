@@ -14,9 +14,9 @@ public class EstacionamentoController {
 
         System.out.println("Bem vindo ao nosso sistema de cadastro de estacionamento. \nAtualmente temos " + this.estacionamento.getTotalVagas() + " vagas\n");
 
-        printMenu();
 
-        String menuSwitch = scanner.nextLine();
+
+        String menuSwitch = printMenu();
         while (!(menuSwitch.equals("nao") ||
                  menuSwitch.equals("não") ||
                  menuSwitch.equals("Não") ||
@@ -36,18 +36,21 @@ public class EstacionamentoController {
 
                     System.out.println("Vagas disponíveis: " + (this.estacionamento.getTotalVagas() - this.estacionamento.size()) + "\n");
 
-                    printMenu();
-                    menuSwitch = this.scanner.nextLine();
+
+                    menuSwitch = printMenu();
                     break;
                 case "remover":
                     System.out.println("Digite o número da vaga que deseja remover o carro");
-                    Integer index = this.scanner.nextInt();
+                    Integer index = new Scanner(System.in).nextInt();
                     this.resposta = this.estacionamento.removeCarro(index);
                     System.out.println(resposta+ "\n");
-                    printMenu();
-                    menuSwitch = this.scanner.nextLine();
+
+                    menuSwitch = printMenu();
                     break;
                 default:
+                    System.out.println("Opção não é válida. Porfavor digite uma das opçoes do Menu");
+
+                    menuSwitch = printMenu();
                     break;
             }
         }
@@ -106,10 +109,12 @@ public class EstacionamentoController {
 //
     }
 
-    private void printMenu() {
+    private String printMenu() {
         System.out.println("*Menu Estacionamento*");
         System.out.println("Digite \"sim\" para cadastrar seu veículo no estacionamento");
         System.out.println("Digite \"não\" para sair do Menu");
         System.out.println("Digite \"remover\" para tirar seu carro do estacionamento");
+        String input;
+        return input = this.scanner.nextLine();
     }
 }
