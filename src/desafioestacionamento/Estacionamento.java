@@ -14,12 +14,18 @@ public class Estacionamento {
             this.vagas++;
             return "Carro estacionado na vaga: " + vagas;
         } else {
-            throw new Exception("Nao foi possível estacionar o carro com a placa: " + carro.getPlaca() + "\nLimite de vagas alcançado. Porfavor tente mais tarde.");
+            return "Nao foi possível estacionar o carro com a placa: " + carro.getPlaca() + "\nLimite de vagas alcançado. Porfavor tente mais tarde.";
         }
     }
 
-    public void removeCarro(int index){
-        this.listaCarrosEstacionamento.remove(index);
+    public String removeCarro(int index){
+        try {
+            String placa = getCarro(index).getPlaca();
+            this.listaCarrosEstacionamento.remove(index);
+            return "Carro com a placa: " + placa + ". Na vaga: " + index + ". Removido com sucesso";
+        }catch (Exception e){
+            return "Falha ao remover carro da vaga. Tente novamente com outra vaga";
+        }
     }
 
     public Carro getCarro(int index){
