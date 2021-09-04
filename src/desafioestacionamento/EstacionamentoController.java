@@ -11,9 +11,7 @@ public class EstacionamentoController {
     public void Controller() throws Exception {
 
 
-
         System.out.println("Bem vindo ao nosso sistema de cadastro de estacionamento. \nAtualmente temos " + this.estacionamento.getTotalVagas() + " vagas\n");
-
 
 
         String menuSwitch = printMenu();
@@ -22,7 +20,7 @@ public class EstacionamentoController {
                  menuSwitch.equals("Não") ||
                  menuSwitch.equals("Nao"))) {
 
-            switch (menuSwitch){
+            switch (menuSwitch) {
                 case "sim":
                     System.out.println("Digite a cor do seu carro");
                     String cor = this.scanner.nextLine();
@@ -31,7 +29,7 @@ public class EstacionamentoController {
                     System.out.println("Digite a velocidade máxida do seu carro");
                     String velocidadeM = this.scanner.nextLine();
 
-                    this.resposta = this.estacionamento.addCarro(new Carro(cor,placa,velocidadeM));
+                    this.resposta = this.estacionamento.addCarro(new Carro(cor, placa, velocidadeM));
                     System.out.println(this.resposta);
 
                     System.out.println("Vagas disponíveis: " + (this.estacionamento.getTotalVagas() - this.estacionamento.size()) + "\n");
@@ -43,7 +41,7 @@ public class EstacionamentoController {
                     System.out.println("Digite o número da vaga que deseja remover o carro");
                     Integer index = new Scanner(System.in).nextInt();
                     this.resposta = this.estacionamento.removeCarro(index);
-                    System.out.println(resposta+ "\n");
+                    System.out.println(resposta + "\n");
 
                     menuSwitch = printMenu();
                     break;
@@ -52,15 +50,16 @@ public class EstacionamentoController {
 
                     menuSwitch = printMenu();
                     break;
+
             }
         }
 
         System.out.println("\nCarros:\n");
-        this.estacionamento.getListaCarrosEstacionamento().stream().forEach(carro -> System.out.println("Carro numero: " + "\n" +
+        this.estacionamento.getListaCarrosEstacionamento().stream().forEach(carro -> System.out.println(
+                "Carro numero: " + (this.estacionamento.getListaCarrosEstacionamento().indexOf(carro) + 1) + "\n" +
                 "Cor: " + carro.getCor() + "\n" +
                 "Placa: " + carro.getPlaca() + "\n" +
                 "Velocidade Máxima: " + carro.getVelocidadeMax() + "\n"));
-
 
 
         //            resposta = estacionamento.addCarro(new Carro("Verde", "00000001", "180 KM"));
