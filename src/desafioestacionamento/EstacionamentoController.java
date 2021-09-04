@@ -34,7 +34,6 @@ public class EstacionamentoController {
 
                     System.out.println("Vagas disponíveis: " + (this.estacionamento.getTotalVagas() - this.estacionamento.size()) + "\n");
 
-
                     menuSwitch = printMenu();
                     break;
                 case "remover":
