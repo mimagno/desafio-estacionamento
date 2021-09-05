@@ -25,10 +25,10 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro {" +
-                "Cor: '" + cor + '\''+ "\n" +
-                ", Placa: '" + placa + '\''+ "\n" +
-                ", Velocidade Máxima: '" + velocidadeMax + '\'' +
-                '}';
+        return "Carro {\n" +
+                "Cor: '" + cor + '\'' +
+                ",\n" + "Placa: '" + placa + '\'' +
+                ",\n" + "Velocidade Máxima: '" + velocidadeMax + '\'' +
+                '}'+"\n";
     }
 }

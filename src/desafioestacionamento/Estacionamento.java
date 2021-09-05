@@ -48,4 +48,9 @@ public class Estacionamento {
         return totalVagas;
     }
 
+    public Boolean isEmpty(){
+        if (listaCarrosEstacionamento.isEmpty()) return true;
+        return false;
+    }
+
 }
