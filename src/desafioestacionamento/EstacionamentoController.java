@@ -56,9 +56,7 @@ public class EstacionamentoController {
         System.out.println("\nCarros:\n");
         this.estacionamento.getListaCarrosEstacionamento().stream().forEach(carro -> System.out.println(
                 "Carro numero: " + (this.estacionamento.getListaCarrosEstacionamento().indexOf(carro) + 1) + "\n" +
-                "Cor: " + carro.getCor() + "\n" +
-                "Placa: " + carro.getPlaca() + "\n" +
-                "Velocidade Máxima: " + carro.getVelocidadeMax() + "\n"));
+                 carro.toString()));
 
 
         //            resposta = estacionamento.addCarro(new Carro("Verde", "00000001", "180 KM"));

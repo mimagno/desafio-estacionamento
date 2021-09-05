@@ -47,4 +47,5 @@ public class Estacionamento {
     public Integer getTotalVagas(){
         return totalVagas;
     }
+
 }

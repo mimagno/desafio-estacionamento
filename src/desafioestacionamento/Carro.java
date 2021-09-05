@@ -23,7 +23,12 @@ public class Carro {
         return this.velocidadeMax;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Carro {" +
+                "Cor: '" + cor + '\''+ "\n" +
+                ", Placa: '" + placa + '\''+ "\n" +
+                ", Velocidade Máxima: '" + velocidadeMax + '\'' +
+                '}';
+    }
 }
